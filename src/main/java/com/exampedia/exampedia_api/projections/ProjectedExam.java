@@ -17,7 +17,9 @@ public interface ProjectedExam {
 
 	String getExamFees();
 
-	boolean getExamFree();
+	String getExamMarks();
+	
+	String getExamTime();
 
 	boolean getExamSoldSeparately();
 }

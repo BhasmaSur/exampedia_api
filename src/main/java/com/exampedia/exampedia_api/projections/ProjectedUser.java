@@ -1,6 +1,10 @@
 package com.exampedia.exampedia_api.projections;
 
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
+
+import com.exampedia.exampedia_api.model.Course;
 
 public class ProjectedUser {
 	
@@ -10,9 +14,31 @@ public class ProjectedUser {
 	private String preferenceCourses;
 	private String preferenceSubjects;
 	private String preferenceExams;
-	private String picUrl;
-	private String picId;
+	private byte[] picByte;
+	private String picType;
 	private String roles;
+	private boolean active;
+	private String age;
+	private String dob;
+	private String mobile;
+	private String address;
+	private String biodata;
+	private String proffession;
+	private List<Course> coursesSubscribed;
+	
+	
+	public List<Course> getCoursesSubscribed() {
+		return coursesSubscribed;
+	}
+	public void setCoursesSubscribed(List<Course> coursesSubscribed) {
+		this.coursesSubscribed = coursesSubscribed;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -49,17 +75,18 @@ public class ProjectedUser {
 	public void setPreferenceExams(String preferenceExams) {
 		this.preferenceExams = preferenceExams;
 	}
-	public String getPicUrl() {
-		return picUrl;
+
+	public byte[] getPicByte() {
+		return picByte;
 	}
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
+	public void setPicByte(byte[] picByte) {
+		this.picByte = picByte;
 	}
-	public String getPicId() {
-		return picId;
+	public String getPicType() {
+		return picType;
 	}
-	public void setPicId(String picId) {
-		this.picId = picId;
+	public void setPicType(String picType) {
+		this.picType = picType;
 	}
 	public String getRoles() {
 		return roles;
@@ -71,8 +98,11 @@ public class ProjectedUser {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	public ProjectedUser(int userid, String userName, String email, String preferenceCourses, String preferenceSubjects,
-			String preferenceExams, String picUrl, String picId, String roles) {
+			String preferenceExams, byte[] picByte, String picType, String roles, boolean active, String age, String dob,
+			String mobile, String address, String biodata, String proffession, List<Course> coursesSubscribed) {
 		super();
 		this.userid = userid;
 		this.userName = userName;
@@ -80,9 +110,54 @@ public class ProjectedUser {
 		this.preferenceCourses = preferenceCourses;
 		this.preferenceSubjects = preferenceSubjects;
 		this.preferenceExams = preferenceExams;
-		this.picUrl = picUrl;
-		this.picId = picId;
+		this.picType = picType;
+		this.picType = picType;
 		this.roles = roles;
+		this.active = active;
+		this.age = age;
+		this.dob = dob;
+		this.mobile = mobile;
+		this.address = address;
+		this.biodata = biodata;
+		this.proffession = proffession;
+		this.coursesSubscribed = coursesSubscribed;
 	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getBiodata() {
+		return biodata;
+	}
+	public void setBiodata(String biodata) {
+		this.biodata = biodata;
+	}
+	public String getProffession() {
+		return proffession;
+	}
+	public void setProffession(String proffession) {
+		this.proffession = proffession;
+	}
+
 	
 }

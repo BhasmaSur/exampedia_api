@@ -17,8 +17,8 @@ public class CreateDummyExams {
 	public List<Exam> getDummyExamsSet1(){
 		List<Exam> examSet1=new ArrayList<>();
 		
-		Exam exam1=new Exam(1,"NDA","Army","MATHS,APTITUDE","20",false,"NDA.xlsx",true);
-		Exam exam2=new Exam(1,"BE","ENGINEERING","BCS,BBA","20",false,"be.xlsx",true);
+		Exam exam1=new Exam(1,"NDA","Army","MATHS,APTITUDE","20","30","40s",true);
+		Exam exam2=new Exam(1,"BE","ENGINEERING","BCS,BBA","20","40","60s",true);
 		examSet1.add(exam1);
 		examSet1.add(exam2);
 		return examSet1;
@@ -26,8 +26,8 @@ public class CreateDummyExams {
 	public List<Exam> getDummyExamsSet2(){
 		List<Exam> examSet2=new ArrayList<>();
 		
-		Exam exam3=new Exam(1,"TCS","Army","MATHS,APTITUDE","20",false,"NDA.xlsx",true);
-		Exam exam4=new Exam(1,"RJ","ENGINEERING","BCS,BBA","20",false,"be.xlsx",true);
+		Exam exam3=new Exam(1,"TCS","Army","MATHS,APTITUDE","20","100","1h",true);
+		Exam exam4=new Exam(1,"RJ","ENGINEERING","BCS,BBA","20","200","1h",true);
 		examSet2.add(exam3);
 		examSet2.add(exam4);
 		return examSet2;

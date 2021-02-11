@@ -18,8 +18,8 @@ public class Exam {
 	private String examDescription;
 	private String examSubjects;
 	private String examFees;
-	private boolean examFree;
-	private String examFileName;
+	private String examMarks;
+	private String examTime;
 	private boolean examSoldSeparately;
 	public int getExamId() {
 		return examId;
@@ -51,17 +51,17 @@ public class Exam {
 	public void setExamFees(String examFees) {
 		this.examFees = examFees;
 	}
-	public boolean isExamFree() {
-		return examFree;
+	public String getExamMarks() {
+		return examMarks;
 	}
-	public void setExamFree(boolean examFree) {
-		this.examFree = examFree;
+	public void setExamMarks(String examMarks) {
+		this.examMarks = examMarks;
 	}
-	public String getExamFileName() {
-		return examFileName;
+	public String getExamTime() {
+		return examTime;
 	}
-	public void setExamFileName(String examFileName) {
-		this.examFileName = examFileName;
+	public void setExamTime(String examTime) {
+		this.examTime = examTime;
 	}
 	public boolean isExamSoldSeparately() {
 		return examSoldSeparately;
@@ -69,20 +69,18 @@ public class Exam {
 	public void setExamSoldSeparately(boolean examSoldSeparately) {
 		this.examSoldSeparately = examSoldSeparately;
 	}
-	public Exam(int examId, @NotNull String examName, @NotNull String examDescription, @NotNull String examSubjects,
-			@NotNull String examFees, @NotNull boolean examFree, @NotNull String examFileName,
-			@NotNull boolean examSoldSeparately) {
+	public Exam(int examId, String examName, String examDescription, String examSubjects, String examFees,
+			String examMarks, String examTime, boolean examSoldSeparately) {
 		super();
 		this.examId = examId;
 		this.examName = examName;
 		this.examDescription = examDescription;
 		this.examSubjects = examSubjects;
 		this.examFees = examFees;
-		this.examFree = examFree;
-		this.examFileName = examFileName;
+		this.examMarks = examMarks;
+		this.examTime = examTime;
 		this.examSoldSeparately = examSoldSeparately;
 	}
-	
 	public Exam() {
 		super();
 		// TODO Auto-generated constructor stub

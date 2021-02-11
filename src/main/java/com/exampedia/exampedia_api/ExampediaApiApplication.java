@@ -36,5 +36,13 @@ public class ExampediaApiApplication {
 		//new CreateDummyCoachings(coachingRepository);
 		
 	}
+	
+	/*
+	 * netstat -ano | findstr :8080
+	 * taskkill /PID 8080 /F
+	 * 
+	 * 
+	 * 
+	 */
 
 }

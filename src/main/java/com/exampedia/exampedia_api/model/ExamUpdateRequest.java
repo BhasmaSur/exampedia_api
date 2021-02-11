@@ -5,21 +5,21 @@ public class ExamUpdateRequest {
 	private String examName;
 	private String examDescription;
 	private String examSubjects;
+	private String examMarks;
+	private String examTime;
 	private String examFees;
-	private boolean examFree;
-	private String examFileName;
 	private boolean examSoldSeparately;
 	private int examCourseId;
-	public ExamUpdateRequest(int examId, String examName, String examDescription, String examSubjects, String examFees,
-			boolean examFree, String examFileName, boolean examSoldSeparately, int examCourseId) {
+	public ExamUpdateRequest(int examId, String examName, String examDescription, String examSubjects, String examMarks,
+			String examTime, String examFees, boolean examSoldSeparately, int examCourseId) {
 		super();
 		this.examId = examId;
 		this.examName = examName;
 		this.examDescription = examDescription;
 		this.examSubjects = examSubjects;
+		this.examMarks = examMarks;
+		this.examTime = examTime;
 		this.examFees = examFees;
-		this.examFree = examFree;
-		this.examFileName = examFileName;
 		this.examSoldSeparately = examSoldSeparately;
 		this.examCourseId = examCourseId;
 	}
@@ -51,23 +51,23 @@ public class ExamUpdateRequest {
 	public void setExamSubjects(String examSubjects) {
 		this.examSubjects = examSubjects;
 	}
+	public String getExamMarks() {
+		return examMarks;
+	}
+	public void setExamMarks(String examMarks) {
+		this.examMarks = examMarks;
+	}
+	public String getExamTime() {
+		return examTime;
+	}
+	public void setExamTime(String examTime) {
+		this.examTime = examTime;
+	}
 	public String getExamFees() {
 		return examFees;
 	}
 	public void setExamFees(String examFees) {
 		this.examFees = examFees;
-	}
-	public boolean isExamFree() {
-		return examFree;
-	}
-	public void setExamFree(boolean examFree) {
-		this.examFree = examFree;
-	}
-	public String getExamFileName() {
-		return examFileName;
-	}
-	public void setExamFileName(String examFileName) {
-		this.examFileName = examFileName;
 	}
 	public boolean isExamSoldSeparately() {
 		return examSoldSeparately;

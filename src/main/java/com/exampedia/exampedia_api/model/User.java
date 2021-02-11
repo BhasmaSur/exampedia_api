@@ -1,5 +1,8 @@
 package com.exampedia.exampedia_api.model;
 
+import java.util.Arrays;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,13 +32,24 @@ public class User {
 	@NotNull
 	private String preferenceExams;
 	@NotNull
-	private String picUrl;
+	@Column(name = "picByte", length = 1000)
+	private byte[] picByte;
 	@NotNull
-	private String picId;
+	private String picType;
 	@NotNull
 	private String roles;
 	@NotNull
 	private boolean active;
+	@NotNull
+	private String age;
+	@NotNull
+	private String mobile;
+	@NotNull
+	private String address;
+	@NotNull
+	private String biodata;
+	@NotNull
+	private String proffession;
 	public int getId() {
 		return userid;
 	}
@@ -84,18 +98,6 @@ public class User {
 	public void setPreferenceExams(String preferenceExams) {
 		this.preferenceExams = preferenceExams;
 	}
-	public String getPicUrl() {
-		return picUrl;
-	}
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
-	}
-	public String getPicId() {
-		return picId;
-	}
-	public void setPicId(String picId) {
-		this.picId = picId;
-	}
 	public String getRoles() {
 		return roles;
 	}
@@ -104,30 +106,92 @@ public class User {
 	}
 	public boolean isActive() {
 		return active;
-	}
+	}	
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public User(int id, String userName, String email, String password, String dob, String preferenceCourses,
-			String preferenceSubjects, String preferenceExams, String picUrl, String picId, String roles,
-			boolean active) {
-		super();
-		this.userid = id;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.dob = dob;
-		this.preferenceCourses = preferenceCourses;
-		this.preferenceSubjects = preferenceSubjects;
-		this.preferenceExams = preferenceExams;
-		this.picUrl = picUrl;
-		this.picId = picId;
-		this.roles = roles;
-		this.active = active;
+	public boolean getActive() {
+		return active;
 	}
-	public User(String userName, String email, String password, String dob, String preferenceCourses,
-			String preferenceSubjects, String preferenceExams, String picUrl, String picId, String roles,
-			boolean active) {
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getBiodata() {
+		return biodata;
+	}
+	public void setBiodata(String biodata) {
+		this.biodata = biodata;
+	}
+	public String getProffession() {
+		return proffession;
+	}
+	public void setProffession(String proffession) {
+		this.proffession = proffession;
+	}
+	
+	public byte[] getPicByte() {
+		return picByte;
+	}
+	public void setPicByte(byte[] picByte) {
+		this.picByte = picByte;
+	}
+	public String getPicType() {
+		return picType;
+	}
+	public void setPicType(String picType) {
+		this.picType = picType;
+	}
+	
+	public User(int userid, @NotNull String userName, @NotNull String email, @NotNull String password,
+			@NotNull String dob, @NotNull String preferenceCourses, @NotNull String preferenceSubjects,
+			@NotNull String preferenceExams, @NotNull byte[] picByte, @NotNull String picType, @NotNull String roles,
+			@NotNull boolean active, @NotNull String age, @NotNull String mobile, @NotNull String address,
+			@NotNull String biodata, @NotNull String proffession) {
+		super();
+		this.userid = userid;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.dob = dob;
+		this.preferenceCourses = preferenceCourses;
+		this.preferenceSubjects = preferenceSubjects;
+		this.preferenceExams = preferenceExams;
+		this.picByte = picByte;
+		this.picType = picType;
+		this.roles = roles;
+		this.active = active;
+		this.age = age;
+		this.mobile = mobile;
+		this.address = address;
+		this.biodata = biodata;
+		this.proffession = proffession;
+	}
+	public User(@NotNull String userName, @NotNull String email, @NotNull String password,
+			@NotNull String dob, @NotNull String preferenceCourses, @NotNull String preferenceSubjects,
+			@NotNull String preferenceExams, @NotNull byte[] picByte, @NotNull String picType, @NotNull String roles,
+			@NotNull boolean active, @NotNull String age, @NotNull String mobile, @NotNull String address,
+			@NotNull String biodata, @NotNull String proffession) {
 		super();
 		this.userName = userName;
 		this.email = email;
@@ -136,14 +200,27 @@ public class User {
 		this.preferenceCourses = preferenceCourses;
 		this.preferenceSubjects = preferenceSubjects;
 		this.preferenceExams = preferenceExams;
-		this.picUrl = picUrl;
-		this.picId = picId;
+		this.picType = picType;
+		this.picByte = picByte;
 		this.roles = roles;
 		this.active = active;
+		this.age = age;
+		this.mobile = mobile;
+		this.address = address;
+		this.biodata = biodata;
+		this.proffession = proffession;
 	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", userName=" + userName + ", email=" + email + ", password=" + password
+				+ ", dob=" + dob + ", preferenceCourses=" + preferenceCourses + ", preferenceSubjects="
+				+ preferenceSubjects + ", preferenceExams=" + preferenceExams + ", picByte=" + Arrays.toString(picByte)
+				+ ", picType=" + picType + ", roles=" + roles + ", active=" + active + ", age=" + age + ", mobile="
+				+ mobile + ", address=" + address + ", biodata=" + biodata + ", proffession=" + proffession + "]";
 	}
 	
 	

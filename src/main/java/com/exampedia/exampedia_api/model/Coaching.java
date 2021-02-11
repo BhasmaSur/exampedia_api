@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,9 +36,10 @@ public class Coaching {
 	@NotNull
 	private String coachingOwner;
 	@NotNull
-	private String coachingPicUrl;
+	@Column(name = "coachingPicByte", length = 100000)
+	private byte[] coachingPicByte;
 	@NotNull
-	private String coachingPicId;
+	private String coachingPicType;
 	@NotNull
 	private String coachingStars;
 	
@@ -93,17 +95,18 @@ public class Coaching {
 	public void setCoachingOwner(String coachingOwner) {
 		this.coachingOwner = coachingOwner;
 	}
-	public String getCoachingPicUrl() {
-		return coachingPicUrl;
+	
+	public byte[] getCoachingPicByte() {
+		return coachingPicByte;
 	}
-	public void setCoachingPicUrl(String coachingPicUrl) {
-		this.coachingPicUrl = coachingPicUrl;
+	public void setCoachingPicByte(byte[] coachingPicByte) {
+		this.coachingPicByte = coachingPicByte;
 	}
-	public String getCoachingPicId() {
-		return coachingPicId;
+	public String getCoachingPicType() {
+		return coachingPicType;
 	}
-	public void setCoachingPicId(String coachingPicId) {
-		this.coachingPicId = coachingPicId;
+	public void setCoachingPicType(String coachingPicType) {
+		this.coachingPicType = coachingPicType;
 	}
 	public String getCoachingStars() {
 		return coachingStars;
@@ -117,12 +120,12 @@ public class Coaching {
 	public void setCoachingCourses(List<Course> coachingCourses) {
 		this.coachingCourses = coachingCourses;
 	}
-	public Coaching(int coachingid, @NotNull String coachingName, @NotNull String coachingEmail,
+	public Coaching(int coachingId, @NotNull String coachingName, @NotNull String coachingEmail,
 			@NotNull String coachingPassword, @NotNull int coachingStatus, @NotNull String coachingMobile,
-			@NotNull String coachingAddress, @NotNull String coachingOwner, @NotNull String coachingPicUrl,
-			@NotNull String coachingPicId, @NotNull String coachingStars, List<Course> coachingCourses) {
+			@NotNull String coachingAddress, @NotNull String coachingOwner, @NotNull byte[] coachingPicByte,
+			@NotNull String coachingPicType, @NotNull String coachingStars, List<Course> coachingCourses) {
 		super();
-		this.coachingId = coachingid;
+		this.coachingId = coachingId;
 		this.coachingName = coachingName;
 		this.coachingEmail = coachingEmail;
 		this.coachingPassword = coachingPassword;
@@ -130,8 +133,8 @@ public class Coaching {
 		this.coachingMobile = coachingMobile;
 		this.coachingAddress = coachingAddress;
 		this.coachingOwner = coachingOwner;
-		this.coachingPicUrl = coachingPicUrl;
-		this.coachingPicId = coachingPicId;
+		this.coachingPicByte = coachingPicByte;
+		this.coachingPicType = coachingPicType;
 		this.coachingStars = coachingStars;
 		this.coachingCourses = coachingCourses;
 	}
@@ -144,7 +147,7 @@ public class Coaching {
 		return "Coaching [coachingId=" + coachingId + ", coachingName=" + coachingName + ", coachingEmail="
 				+ coachingEmail + ", coachingPassword=" + coachingPassword + ", coachingStatus=" + coachingStatus
 				+ ", coachingMobile=" + coachingMobile + ", coachingAddress=" + coachingAddress + ", coachingOwner="
-				+ coachingOwner + ", coachingPicUrl=" + coachingPicUrl + ", coachingPicId=" + coachingPicId
+				+ coachingOwner + ", coachingPicUrl=" + coachingPicByte + ", coachingPicId=" + coachingPicType
 				+ ", coachingStars=" + coachingStars + ", coachingCourses=" + coachingCourses + "]";
 	}
 

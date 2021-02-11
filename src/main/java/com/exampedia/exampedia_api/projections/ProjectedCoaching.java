@@ -15,8 +15,8 @@ public interface ProjectedCoaching {
 	String getCoachingMobile();
 	String getCoachingAddress();
 	String getCoachingOwner();
-	String getCoachingPicUrl();
-	String getCoachingPicId();
+	byte[] getCoachingPicByte();
+	String getCoachingPicType();
 	String getCoachingStars();
 	List<ProjectedCourses> getCoachingCourses();
 	
