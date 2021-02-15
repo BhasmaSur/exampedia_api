@@ -235,7 +235,16 @@ public class CoachingsController {
 		int courseBelongToCoachingId=coachingsDetailService.getCoachingIdForCourse(videoData.getVideoCourseId());
 		if(coachingInToken.getCoachingid()==courseBelongToCoachingId) {
 			Optional<Course> courseUpdated=coachingsDetailService.updateVideoDetails(videoData);
-			return ResponseEntity.ok(courseUpdated);
+			if(courseUpdated.isPresent()) {
+				Coaching coachingUpdated=coachingsDetailService.getCoachingByEmail(username);
+				return ResponseEntity.ok(coachingUpdated);
+			}
+			else {
+				errorResponse.setErrorCode(422);
+				errorResponse.setErrorMessage("Course not updated");
+				return ResponseEntity.ok(errorResponse);
+			}
+			
 		}
 		else {
 			errorResponse.setErrorCode(422);
@@ -254,10 +263,20 @@ public class CoachingsController {
 			username=jwtTokenUtil.extractUsername(jwt);
 		}
 		Coaching coachingInToken=coachingsDetailService.getCoachingByEmail(username);
+//		System.out.println("====================="+pdfData.getPdfCourseId());
 		int courseBelongToCoachingId=coachingsDetailService.getCoachingIdForCourse(pdfData.getPdfCourseId());
 		if(coachingInToken.getCoachingid()==courseBelongToCoachingId) {
 			Optional<Course> courseUpdated=coachingsDetailService.updatePdfDetails(pdfData);
-			return ResponseEntity.ok(courseUpdated);
+			if(courseUpdated.isPresent()) {
+				Coaching coachingUpdated=coachingsDetailService.getCoachingByEmail(username);
+				return ResponseEntity.ok(coachingUpdated);
+			}
+			else {
+				errorResponse.setErrorCode(422);
+				errorResponse.setErrorMessage("Course not updated");
+				return ResponseEntity.ok(errorResponse);
+			}
+			
 		}
 		else {
 			errorResponse.setErrorCode(422);

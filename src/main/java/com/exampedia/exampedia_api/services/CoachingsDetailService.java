@@ -125,7 +125,7 @@ public class CoachingsDetailService {
 	}
 	public int getCoachingIdForCourse(int courseId) {
 		//System.out.println("====================================="+courseId+"==================");
-		int id=courseRepository.getIdOfCoachingThisCourseBelongsTo(String.valueOf(courseId));
+		int id=courseRepository.getIdOfCoachingThisCourseBelongsTo(courseId);
 		return id;
 	}
 	public Optional<Course> updateExamDetails(ExamUpdateRequest examUpdateToCourse){
@@ -205,6 +205,7 @@ public class CoachingsDetailService {
 				pdfObj.setPdfDescription(pdfUpdateToCourse.getPdfDescription());
 				pdfObj.setPdfSubjects(pdfUpdateToCourse.getPdfSubjects());
 				pdfObj.setPdfFileName(pdfUpdateToCourse.getPdfFileName());
+				pdfObj.setPdfFileId(pdfUpdateToCourse.getPdfFileId());
 				boolPdfAlreadyInDatabase=true;
 				break;
 			}
@@ -219,6 +220,7 @@ public class CoachingsDetailService {
 			pdf.setPdfDescription(pdfUpdateToCourse.getPdfDescription());
 			pdf.setPdfSubjects(pdfUpdateToCourse.getPdfSubjects());
 			pdf.setPdfFileName(pdfUpdateToCourse.getPdfFileName());
+			pdf.setPdfFileId(pdfUpdateToCourse.getPdfFileId());
 			coursePdfs.add(pdf);
 			Course courseUpdated=courseRepository.save(course);
 			return Optional.of(courseUpdated);

@@ -6,7 +6,16 @@ public class PdfUpdateRequest {
 	private String pdfDescription;
 	private String pdfSubjects;
 	private String pdfFileName;
+	private String pdfFileId;
 	private int pdfCourseId;
+	
+	
+	public String getPdfFileId() {
+		return pdfFileId;
+	}
+	public void setPdfFileId(String pdfFileId) {
+		this.pdfFileId = pdfFileId;
+	}
 	public int getPdfId() {
 		return pdfId;
 	}
@@ -48,14 +57,16 @@ public class PdfUpdateRequest {
 		// TODO Auto-generated constructor stub
 	}
 	public PdfUpdateRequest(int pdfId, String pdfName, String pdfDescription, String pdfSubjects, String pdfFileName,
-			int pdfCourseId) {
+			String pdfFileId, int pdfCourseId) {
 		super();
 		this.pdfId = pdfId;
 		this.pdfName = pdfName;
 		this.pdfDescription = pdfDescription;
 		this.pdfSubjects = pdfSubjects;
 		this.pdfFileName = pdfFileName;
+		this.pdfFileId = pdfFileId;
 		this.pdfCourseId = pdfCourseId;
 	}
+
 	
 }

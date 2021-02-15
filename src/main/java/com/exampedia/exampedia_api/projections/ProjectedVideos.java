@@ -6,4 +6,6 @@ public interface ProjectedVideos {
 	String getVideoName();
 	String getVideoDescription();
 	String getVideoSubject();
+	String getVideoFileName();
+	String getVideoFileID();
 }

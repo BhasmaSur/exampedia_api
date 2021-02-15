@@ -5,4 +5,6 @@ public interface ProjectedPdf {
 	String getPdfName();
 	String getPdfDescription();
 	String getPdfSubjects();
+	String getPdfFileName();
+	String getPdfFileId();
 }

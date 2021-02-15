@@ -11,12 +11,19 @@ import org.springframework.stereotype.Service;
 
 import com.exampedia.exampedia_api.model.Coaching;
 import com.exampedia.exampedia_api.model.Course;
+import com.exampedia.exampedia_api.model.Question;
 import com.exampedia.exampedia_api.repository.CoachingRepository;
+import com.exampedia.exampedia_api.repository.QuestionRepository;
 
 
 @Component
 public class CreateDummyCoachings {
 
+	@Autowired
+	CreateDummyQuestions createDummyQuestions;
+	
+	@Autowired
+	private QuestionRepository questionRepository;
 	
 	@Autowired
 	CreateDummyCourses createDummyCourses;
@@ -30,6 +37,9 @@ public class CreateDummyCoachings {
 	
 	public void addCoachings() {
 				
+		List<Question> questions=createDummyQuestions.getListOfDummyQuestions();
+		questionRepository.saveAll(questions);
+		
 		
 		List<Course> courses1=createDummyCourses.getDummyCoursesSet1();
 		List<Course> courses2=createDummyCourses.getDummyCoursesSet2();
